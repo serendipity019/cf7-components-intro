@@ -1,0 +1,15 @@
+type Props = {
+    title: string;
+}
+
+// interface Props {
+//     title: string;
+// }
+
+const ArrowFunctionalComponentWithProps = ({ title }: Props) => {
+    return (
+         <h1 className="text-center">{title}</h1>
+    );
+}
+
+export default ArrowFunctionalComponentWithProps;
