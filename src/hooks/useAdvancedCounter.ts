@@ -8,7 +8,7 @@ type CounterState = {
 
 export const useAdvancedCounter = (initialValue: number = 0) => {
     const [state, setState] = useState<CounterState>({
-            count: 0,
+            count: initialValue,
             lastAction: '',
             time: ''
         });
@@ -35,7 +35,7 @@ export const useAdvancedCounter = (initialValue: number = 0) => {
 
     const resetCount = () => {
         setState({
-            count: 0,
+            count: initialValue,
             lastAction: 'Reset',
             time: getCurrentTime()
         })

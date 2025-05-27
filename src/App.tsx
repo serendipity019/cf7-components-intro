@@ -9,9 +9,9 @@
 // import FunctionalComponentWithState from "./components/FunctionalComponentWithState"
 import Layout from "./components/Layout"
 //import NameChangerComponent from "./components/NameChangerComp"
-import CounterWithMoreStatesComp from "./components/CounterWithMoreStatesComp"
-import CounterAdvancedComp from "./components/CounterAdvancedComp"
-import CounterWithCustomHooks from "./components/CounterWithCustomHooks"
+// import CounterWithMoreStatesComp from "./components/CounterWithMoreStatesComp"
+// import CounterAdvancedComp from "./components/CounterAdvancedComp"
+// import CounterWithCustomHooks from "./components/CounterWithCustomHooks"
 import CounterAdvancedWithCustomHooks from "./components/CounterAdvancedWithCustomHooks"
 
 // import CFLogo from "./components/CFLogo"
