@@ -31,6 +31,7 @@ const Todo = () => {
     const addTodo = (text: string) => {
         dispatch({ type: "ADD", payload: text });
     }
+    
     const deleteTodo = (id: number) => {
         dispatch({ type: "DELETE", payload: id });
     }

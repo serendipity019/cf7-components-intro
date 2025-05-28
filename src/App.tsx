@@ -13,7 +13,8 @@ import Layout from "./components/Layout"
 // import CounterAdvancedComp from "./components/CounterAdvancedComp"
 // import CounterWithCustomHooks from "./components/CounterWithCustomHooks"
 //import CounterAdvancedWithCustomHooks from "./components/CounterAdvancedWithCustomHooks"
-import CounterWithReducer from "./components/CounterWithReducer"
+//import CounterWithReducer from "./components/CounterWithReducer"
+import Todo from "./components/toDo/Todo.tsx"
 
 // import CFLogo from "./components/CFLogo"
 
@@ -42,7 +43,8 @@ function App() {
           {/* <CounterWithCustomHooks/> */}
           {/* <NameChangerComponent/> */}
           {/* <NameChangerComponent/>  */}
-          <CounterWithReducer/> 
+          {/* <CounterWithReducer/>  */}
+          <Todo/> 
         </Layout>
 
     </>

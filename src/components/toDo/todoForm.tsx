@@ -1,6 +1,12 @@
 import { useState } from 'react';
 
-const todoForm = () => { 
+type Actions = 
+|{ type: "ADD"; payload: string }
+|{ type: "DELETE"; payload: number }
+
+type todoFormProps = { dispatch: React.Dispatch<Actions> }
+
+const TodoForm = ({dispatch}: todoFormProps) => { 
     const [text, setText] = useState("");
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -8,7 +14,11 @@ const todoForm = () => {
     }
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        
+        e.preventDefault(); // Prevent the default form submission behavior
+        if (text.trim() !== "") {
+            dispatch({ type: "ADD", payload: text });
+            setText(""); // Clear the input field after submission
+        }
     }
     
     return (
