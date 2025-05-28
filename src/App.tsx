@@ -12,7 +12,8 @@ import Layout from "./components/Layout"
 // import CounterWithMoreStatesComp from "./components/CounterWithMoreStatesComp"
 // import CounterAdvancedComp from "./components/CounterAdvancedComp"
 // import CounterWithCustomHooks from "./components/CounterWithCustomHooks"
-import CounterAdvancedWithCustomHooks from "./components/CounterAdvancedWithCustomHooks"
+//import CounterAdvancedWithCustomHooks from "./components/CounterAdvancedWithCustomHooks"
+import CounterWithReducer from "./components/CounterWithReducer"
 
 // import CFLogo from "./components/CFLogo"
 
@@ -37,10 +38,11 @@ function App() {
           {/* <CounterWithMoreStatesComp/> */}
           {/* <CounterAdvancedComp/> */}
           {/* <CounterWithCustomHooks/> */}
-          <CounterAdvancedWithCustomHooks/>
+          {/* <CounterAdvancedWithCustomHooks/> */}
           {/* <CounterWithCustomHooks/> */}
           {/* <NameChangerComponent/> */}
           {/* <NameChangerComponent/>  */}
+          <CounterWithReducer/> 
         </Layout>
 
     </>
