@@ -1,4 +1,5 @@
 import TodoForm from "./todoForm";
+import TodoList from "./TodoList";
 import { useReducer } from "react";
 
 type TodoProps = {
@@ -27,20 +28,15 @@ const todoReducer = (state: TodoProps[], action: Actions): TodoProps[] => {
 
 const Todo = () => { 
     const [todos, dispatch] = useReducer(todoReducer, []);
+    console.log(todos);
     
-    const addTodo = (text: string) => {
-        dispatch({ type: "ADD", payload: text });
-    }
-    
-    const deleteTodo = (id: number) => {
-        dispatch({ type: "DELETE", payload: id });
-    }
 
     return ( 
         <>
             <div className="max-w-sm max-auto p-6">
                 <h1 className="text-center text-2xl">To-Do List</h1>
-                <TodoForm/>
+                <TodoForm dispatch={dispatch}/>
+                <TodoList todos={todos} dispatch={dispatch}/>
             </div>
 
         </>

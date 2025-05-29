@@ -34,4 +34,4 @@ const TodoForm = ({dispatch}: todoFormProps) => {
     ) 
 } 
 
-export default todoForm;
+export default TodoForm;
