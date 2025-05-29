@@ -8,13 +8,13 @@
 //import Counter from "./components/Counter"
 // import FunctionalComponentWithState from "./components/FunctionalComponentWithState"
 import Layout from "./components/Layout"
-//import NameChangerComponent from "./components/NameChangerComp"
+import NameChangerComponent from "./components/NameChangerComp"
 // import CounterWithMoreStatesComp from "./components/CounterWithMoreStatesComp"
 // import CounterAdvancedComp from "./components/CounterAdvancedComp"
 // import CounterWithCustomHooks from "./components/CounterWithCustomHooks"
 //import CounterAdvancedWithCustomHooks from "./components/CounterAdvancedWithCustomHooks"
 //import CounterWithReducer from "./components/CounterWithReducer"
-import Todo from "./components/toDo/Todo.tsx"
+//import Todo from "./components/toDo/Todo.tsx"
 
 // import CFLogo from "./components/CFLogo"
 
@@ -42,9 +42,9 @@ function App() {
           {/* <CounterAdvancedWithCustomHooks/> */}
           {/* <CounterWithCustomHooks/> */}
           {/* <NameChangerComponent/> */}
-          {/* <NameChangerComponent/>  */}
+          <NameChangerComponent/> 
           {/* <CounterWithReducer/>  */}
-          <Todo/> 
+          {/* <Todo/>  */}
         </Layout>
 
     </>
