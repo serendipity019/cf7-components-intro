@@ -9,7 +9,8 @@
 // import FunctionalComponentWithState from "./components/FunctionalComponentWithState"
 import { useEffect } from "react"
 import Layout from "./components/Layout"
-import NameChangerComponent from "./components/NameChangerComp"
+//import NameChangerComponent from "./components/NameChangerComp"
+import OnlineStatus from "./components/OnlineStatus";
 // import CounterWithMoreStatesComp from "./components/CounterWithMoreStatesComp"
 // import CounterAdvancedComp from "./components/CounterAdvancedComp"
 // import CounterWithCustomHooks from "./components/CounterWithCustomHooks"
@@ -21,12 +22,12 @@ import NameChangerComponent from "./components/NameChangerComp"
 
 function App() {
 
-  useEffect(() => {
-        const id: number = setInterval(() => console.log("tick"), 1000);
-        return () => {
-            clearInterval(id);
-        };
-    }, []);
+  // useEffect(() => {
+  //       const id: number = setInterval(() => console.log("tick"), 1000);
+  //       return () => {
+  //           clearInterval(id);
+  //       };
+  //   }, []);
 
 
   return (
@@ -50,7 +51,8 @@ function App() {
           {/* <CounterAdvancedWithCustomHooks/> */}
           {/* <CounterWithCustomHooks/> */}
           {/* <NameChangerComponent/> */}
-          <NameChangerComponent/> 
+          {/* <NameChangerComponent/>  */}
+          <OnlineStatus/>
           {/* <CounterWithReducer/>  */}
           {/* <Todo/>  */}
         </Layout>
