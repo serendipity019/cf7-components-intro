@@ -7,6 +7,7 @@
 // import ClassComponentWithState from "./components/ClassComponentWithState"
 //import Counter from "./components/Counter"
 // import FunctionalComponentWithState from "./components/FunctionalComponentWithState"
+import { useEffect } from "react"
 import Layout from "./components/Layout"
 import NameChangerComponent from "./components/NameChangerComp"
 // import CounterWithMoreStatesComp from "./components/CounterWithMoreStatesComp"
@@ -19,6 +20,13 @@ import NameChangerComponent from "./components/NameChangerComp"
 // import CFLogo from "./components/CFLogo"
 
 function App() {
+
+  useEffect(() => {
+        const id: number = setInterval(() => console.log("tick"), 1000);
+        return () => {
+            clearInterval(id);
+        };
+    }, []);
 
 
   return (
