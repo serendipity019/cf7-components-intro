@@ -7,6 +7,12 @@ const NameChangerComponent: React.FC = () => {
         document.title = `Hello, ${name || "Stranger"}`;
     }, [name]);
     
+    // Above is the preferred way to handle side effects in React using useEffect.
+    // const setup = () => { 
+    //     document.title = `Hello, ${name || "Stranger"}`;
+    // }
+    // useEffect(setup, [name]);
+
     const handleChangeName = ( e :React.ChangeEvent<HTMLInputElement>) => {
         setName(e.target.value);
     };
