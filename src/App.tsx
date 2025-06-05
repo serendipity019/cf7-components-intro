@@ -13,8 +13,9 @@ import OnlineStatusPage from "./pages/OnlineStatusPage"
 //import Counter from "./components/Counter"
 // import FunctionalComponentWithState from "./components/FunctionalComponentWithState"
 //import { useEffect } from "react"
-import Layout from "./components/Layout"
+//import Layout from "./components/Layout"
 import UserPage from "./pages/UserPage"
+import RouterLayout from "./components/RouterLayout"
 //import NameChangerComponent from "./components/NameChangerComp"
 //import OnlineStatus from "./components/OnlineStatus";
 // import CounterWithMoreStatesComp from "./components/CounterWithMoreStatesComp"
@@ -63,21 +64,23 @@ function App() {
           {/* <Todo/>  */}
         {/* </Layout> */}
         <BrowserRouter>
-           <Layout>
-             <Routes>
-              {/* <Route path="/" element={<HomePage/>} />   */} // We can use this instead of index element
-              <Route index element={<HomePage/>} />  
+           
+             <Route element={<RouterLayout/>}>
+                <Routes>
+                  {/* <Route path="/" element={<HomePage/>} />   */} // We can use this instead of index element
+                  <Route index element={<HomePage/>} />  
               
-              {/* <Route path="examples"> */}
-              <Route path="examples?"> // The question mark makes the path optional
-                <Route path="name-changer" element={<NameChangerPage/>} /> 
-                <Route path="online-status" element={<OnlineStatusPage/>} />                 
-              </Route> 
-              <Route path="users/:userId" element={<UserPage/>}/>
-              <Route path="users" element={<UserPage/>}/> // This will match /users and /users?userId=12 used for query params
-              {/* <Route path="files/*" element={<FilePage/>}/>   //this is * seagment */}
-            </Routes>
-           </Layout> 
+                  {/* <Route path="examples"> */}
+                  <Route path="examples?"> // The question mark makes the path optional
+                    <Route path="name-changer" element={<NameChangerPage/>} /> 
+                    <Route path="online-status" element={<OnlineStatusPage/>} />                 
+                  </Route> 
+                  <Route path="users/:userId" element={<UserPage/>}/>
+                  <Route path="users" element={<UserPage/>}/> // This will match /users and /users?userId=12 used for query params
+                  {/* <Route path="files/*" element={<FilePage/>}/>   //this is * seagment */}
+                </Routes>
+             </Route>
+            
         </BrowserRouter>
 
     </>
