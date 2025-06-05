@@ -4,13 +4,17 @@
 // import ArrowFunctionalComponentWithProps from "./components/ArrowFunctionalComponentWithProps.tsx"
 // import ArrowFunctionalComponentWithPropsType from "./components/ArrowFunctionalComponentWithPropsType.tsx"
 
+import { BrowserRouter, Route, Routes } from "react-router"
+import HomePage from "./pages/HomePage"
+import NameChangerPage from "./pages/NameChangerPage"
+
 // import ClassComponentWithState from "./components/ClassComponentWithState"
 //import Counter from "./components/Counter"
 // import FunctionalComponentWithState from "./components/FunctionalComponentWithState"
-import { useEffect } from "react"
+//import { useEffect } from "react"
 import Layout from "./components/Layout"
 //import NameChangerComponent from "./components/NameChangerComp"
-import OnlineStatus from "./components/OnlineStatus";
+//import OnlineStatus from "./components/OnlineStatus";
 // import CounterWithMoreStatesComp from "./components/CounterWithMoreStatesComp"
 // import CounterAdvancedComp from "./components/CounterAdvancedComp"
 // import CounterWithCustomHooks from "./components/CounterWithCustomHooks"
@@ -39,7 +43,7 @@ function App() {
       <ArrowFunctionalComponentWithPropsType title="Is a arrow functional component with props!"
       description="This a description"/> */}
       {/* <CFLogo/> */}
-        <Layout> 
+        {/* <Layout>  */}
           {/* <h1 className="text-center text-2xl font-bold"> This is a heading title</h1>
           <ArrowFunctionalComponent/>   */}
           {/* <ClassComponentWithState/>           */}
@@ -52,10 +56,18 @@ function App() {
           {/* <CounterWithCustomHooks/> */}
           {/* <NameChangerComponent/> */}
           {/* <NameChangerComponent/>  */}
-          <OnlineStatus/>
+          {/* <OnlineStatus/> */}
           {/* <CounterWithReducer/>  */}
           {/* <Todo/>  */}
-        </Layout>
+        {/* </Layout> */}
+        <BrowserRouter>
+           <Layout>
+             <Routes>
+              <Route path="/" element={<HomePage/>} />  
+              <Route path="/name-changer" element={<NameChangerPage/>} />          
+            </Routes>
+           </Layout> 
+        </BrowserRouter>
 
     </>
   )
