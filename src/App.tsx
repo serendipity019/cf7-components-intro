@@ -16,6 +16,8 @@ import OnlineStatusPage from "./pages/OnlineStatusPage"
 //import Layout from "./components/Layout"
 import UserPage from "./pages/UserPage"
 import RouterLayout from "./components/RouterLayout"
+import ExamplesPage from "./pages/ExamplesPage"
+import ExamplesLayout from "./components/ExamplesLayout"
 //import NameChangerComponent from "./components/NameChangerComp"
 //import OnlineStatus from "./components/OnlineStatus";
 // import CounterWithMoreStatesComp from "./components/CounterWithMoreStatesComp"
@@ -65,21 +67,23 @@ function App() {
         {/* </Layout> */}
         <BrowserRouter>
            
-             <Route element={<RouterLayout/>}>
-                <Routes>
+             
+              <Routes>
+                <Route element={<RouterLayout/>}>
                   {/* <Route path="/" element={<HomePage/>} />   */} // We can use this instead of index element
-                  <Route index element={<HomePage/>} />  
-              
-                  {/* <Route path="examples"> */}
-                  <Route path="examples?"> // The question mark makes the path optional
-                    <Route path="name-changer" element={<NameChangerPage/>} /> 
-                    <Route path="online-status" element={<OnlineStatusPage/>} />                 
-                  </Route> 
+                  <Route index element={<HomePage/>} />        
                   <Route path="users/:userId" element={<UserPage/>}/>
                   <Route path="users" element={<UserPage/>}/> // This will match /users and /users?userId=12 used for query params
                   {/* <Route path="files/*" element={<FilePage/>}/>   //this is * seagment */}
-                </Routes>
-             </Route>
+                </Route>
+                {/* <Route path="examples?"> // The question mark makes the path optional */}  
+                <Route path="examples" element={<ExamplesLayout/>}> 
+                    <Route index element={<ExamplesPage/>} /> 
+                    <Route path="name-changer" element={<NameChangerPage/>} /> 
+                    <Route path="online-status" element={<OnlineStatusPage/>} />                 
+                </Route> 
+              </Routes>
+             
             
         </BrowserRouter>
 
