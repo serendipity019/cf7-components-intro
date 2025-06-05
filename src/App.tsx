@@ -7,6 +7,7 @@
 import { BrowserRouter, Route, Routes } from "react-router"
 import HomePage from "./pages/HomePage"
 import NameChangerPage from "./pages/NameChangerPage"
+import OnlineStatusPage from "./pages/OnlineStatusPage"
 
 // import ClassComponentWithState from "./components/ClassComponentWithState"
 //import Counter from "./components/Counter"
@@ -63,8 +64,14 @@ function App() {
         <BrowserRouter>
            <Layout>
              <Routes>
-              <Route path="/" element={<HomePage/>} />  
-              <Route path="/name-changer" element={<NameChangerPage/>} />          
+              {/* <Route path="/" element={<HomePage/>} />   */} // We can use this instead of index element
+              <Route index element={<HomePage/>} />  
+              
+              {/* <Route path="examples"> */}
+              <Route path="examples?"> // The question mark makes the path optional
+                <Route path="name-changer" element={<NameChangerPage/>} /> 
+                <Route path="online-status" element={<OnlineStatusPage/>} /> 
+              </Route>         
             </Routes>
            </Layout> 
         </BrowserRouter>

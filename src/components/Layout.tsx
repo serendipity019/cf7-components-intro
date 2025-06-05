@@ -1,5 +1,5 @@
 import Footer from "./Footer";
-import Header from "./Header";
+import HeaderResponsive from "./HeaderResponsive";
 
 
 interface LayoutProps {
@@ -9,7 +9,7 @@ interface LayoutProps {
 const Layout = ({children}: LayoutProps) => {
     return ( 
         <>
-            <Header/> 
+            <HeaderResponsive/> 
             <div className="container mx-auto min-h-[95vh] pt-24">
                 {children}
             </div>
