@@ -18,6 +18,8 @@ import UserPage from "./pages/UserPage"
 import RouterLayout from "./components/RouterLayout"
 import ExamplesPage from "./pages/ExamplesPage"
 import ExamplesLayout from "./components/ExamplesLayout"
+import AutoRedirectPage from "./pages/AutoRedirectPage"
+import NotFoundPage from "./pages/NotFoundPage"
 //import NameChangerComponent from "./components/NameChangerComp"
 //import OnlineStatus from "./components/OnlineStatus";
 // import CounterWithMoreStatesComp from "./components/CounterWithMoreStatesComp"
@@ -80,8 +82,10 @@ function App() {
                 <Route path="examples" element={<ExamplesLayout/>}> 
                     <Route index element={<ExamplesPage/>} /> 
                     <Route path="name-changer" element={<NameChangerPage/>} /> 
-                    <Route path="online-status" element={<OnlineStatusPage/>} />                 
-                </Route> 
+                    <Route path="online-status" element={<OnlineStatusPage/>} />  
+                    <Route path="auto-redirect" element={<AutoRedirectPage/>} />               
+                </Route>
+                <Route path="*" element={<NotFoundPage/>} /> 
               </Routes>
              
             
