@@ -21,6 +21,7 @@ import ExamplesLayout from "./components/ExamplesLayout"
 import AutoRedirectPage from "./pages/AutoRedirectPage"
 import NotFoundPage from "./pages/NotFoundPage"
 import FocusInput from "./components/FocusInput"
+import UncontrolledInput from "./components/UncontrolledInput"
 //import NameChangerComponent from "./components/NameChangerComp"
 //import OnlineStatus from "./components/OnlineStatus";
 // import CounterWithMoreStatesComp from "./components/CounterWithMoreStatesComp"
@@ -83,6 +84,8 @@ function App() {
                 <Route path="examples" element={<ExamplesLayout/>}> 
                     <Route index element={<ExamplesPage/>} /> 
                     <Route path="focus-input" element={<FocusInput/>} />
+                    <Route path="uncontrolled-input" element={<UncontrolledInput/>} />
+                    {/* <Route path="controlled-input" element={<ControlledInput/>} /> */}
                     <Route path="name-changer" element={<NameChangerPage/>} /> 
                     <Route path="online-status" element={<OnlineStatusPage/>} />  
                     <Route path="auto-redirect" element={<AutoRedirectPage/>} />               
