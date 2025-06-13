@@ -22,7 +22,7 @@ import AutoRedirectPage from "./pages/AutoRedirectPage"
 import NotFoundPage from "./pages/NotFoundPage"
 import FocusInput from "./components/FocusInput"
 import UncontrolledInput from "./components/UncontrolledInput"
-import MultiFieldForm from "./components/MultiFieldForm"
+import MultiFieldFormWithValidation from "./components/MultiFieldFormWithValidation"
 //import NameChangerComponent from "./components/NameChangerComp"
 //import OnlineStatus from "./components/OnlineStatus";
 // import CounterWithMoreStatesComp from "./components/CounterWithMoreStatesComp"
@@ -87,7 +87,7 @@ function App() {
                     <Route path="focus-input" element={<FocusInput/>} />
                     <Route path="uncontrolled-input" element={<UncontrolledInput/>} />
                     {/* <Route path="controlled-input" element={<ControlledInput/>} /> */}
-                    <Route path="multi-field-form" element={<MultiFieldForm/>} />
+                    <Route path="multi-field-form" element={<MultiFieldFormWithValidation/>} />
                     <Route path="name-changer" element={<NameChangerPage/>} /> 
                     <Route path="online-status" element={<OnlineStatusPage/>} />  
                     <Route path="auto-redirect" element={<AutoRedirectPage/>} />               
