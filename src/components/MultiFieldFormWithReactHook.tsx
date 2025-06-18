@@ -2,6 +2,7 @@ import { useEffect} from "react";
 import {z} from "zod";
 import {useForm} from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import {Button} from "@/components/ui/button"
 
 const formSchema = z.object({
     name: z.string().min(3, "Name is required").trim(),
@@ -162,6 +163,8 @@ const MultiFieldFormWithReactHook = () => {
                     <button className="bg-gray-200 text-cf-gray-700 px-4 py-2 rounded"
                         onClick={onClear}
                     >Clear</button>
+                    {/* // For the button below we use an import and created from shadcn UI */}
+                    <Button variant = "ghost">Click me</Button> 
                 </div>
             </form>
 
