@@ -23,6 +23,7 @@ import NotFoundPage from "./pages/NotFoundPage"
 import FocusInput from "./components/FocusInput"
 import UncontrolledInput from "./components/UncontrolledInput"
 import MultiFieldFormWithReactHook from "./components/MultiFieldFormWithReactHook"
+import ProductList from "./pages/ProductList"
 //import NameChangerComponent from "./components/NameChangerComp"
 //import OnlineStatus from "./components/OnlineStatus";
 // import CounterWithMoreStatesComp from "./components/CounterWithMoreStatesComp"
@@ -91,6 +92,11 @@ function App() {
                     <Route path="name-changer" element={<NameChangerPage/>} /> 
                     <Route path="online-status" element={<OnlineStatusPage/>} />  
                     <Route path="auto-redirect" element={<AutoRedirectPage/>} />               
+                </Route>
+                <Route path="products" element={<RouterLayout/>}>
+                    <Route index element={<ProductList/>} />
+                    <Route path="new" element={<ProductList/>} />
+                    <Route path=":productId" element={<ProductList/>} />
                 </Route>
                 <Route path="*" element={<NotFoundPage/>} /> 
               </Routes>
