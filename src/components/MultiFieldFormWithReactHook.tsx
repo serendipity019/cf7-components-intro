@@ -27,7 +27,7 @@ const initialValues: FormValues = {
 
 const MultiFieldFormWithReactHook = () => {
     // const [values, setValues] = useState<FormValues>(initialValues);
-    // const [submittedData, setSubmittedData] = useState<FormValues | null>(null);
+    // const [submittedData, setSubmittedData] = useState<FormValues | null>(null); // The watch from the useForm hook replace the submittedData. 
     // const [errors, setErrors] = useState<FormErrors | null>(null);
 
     // const validateForm = ()=> {
@@ -63,18 +63,20 @@ const MultiFieldFormWithReactHook = () => {
 
 
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-        setValues(prevValues => ({
-            ...prevValues,
-            [name]: value
-        }));
+    // const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    //     const { name, value } = e.target;
+    //     setValues(prevValues => ({
+    //         ...prevValues,
+    //         [name]: value
+    //     }));
 
-        setErrors(prevErrors => ({
-            ...prevErrors,
-            [name]: undefined
-        }));
-    };
+    //     setErrors(prevErrors => ({
+    //         ...prevErrors,
+    //         [name]: undefined
+    //     }));
+    // }; // We use the watch from the useForm Hook instead the handleChange
+
+    const watchedValues = watch();
 
     // const handleClear = () => {
     //     setValues(initialValues); 
@@ -163,14 +165,16 @@ const MultiFieldFormWithReactHook = () => {
                 </div>
             </form>
 
-           { submittedData && (
+           {/* { submittedData && ( */}
              <div className="text-center mt-8 space-y-4 max-w-md mx-auto border">
-                <h2 className="font-semibold">Submitted Data</h2>
-                <p><strong>Name:</strong> {submittedData.name}</p>
-                <p><strong>Email:</strong> {submittedData.email}</p>
-                <p><strong>Message:</strong> {submittedData.message}</p>
+                {/* <h2 className="font-semibold">Submitted Data</h2> */}
+                <h2 className="font-semibold">Live Data</h2>
+                {/* // All these below changed from submittedData.{FieldName} to watchedValues.{fieldName} */}
+                <p><strong>Name:</strong> {watchedValues.name}</p> 
+                <p><strong>Email:</strong> {watchedValues.email}</p>
+                <p><strong>Message:</strong> {watchedValues.message}</p>
             </div>
-            )}
+            {/* )} */}
         </>
     );
 };
