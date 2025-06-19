@@ -12,6 +12,7 @@ import { deleteProduct, getProducts, type Product } from "@/api/products";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router";
 import {Pencil, Trash} from "lucide-react";
+import { toast } from "sonner";
 
 
 
@@ -24,11 +25,18 @@ const ProductList = () => {
 
     const handleDelete = async (id: number) => {
         if (!window.confirm("delete this product?")) {
-
+            setDeleting(id);
         }
-        await deleteProduct(id);
-        setProducts((prev) => prev.filter((p) => p.id !== id));
-        console.log("Product deleted successfuly");
+        try{
+            await deleteProduct(id);
+            setProducts((prev) => prev.filter((p) => p.id !== id));
+            toast.success("Product deleted successfully");
+        } catch(error) {
+            toast.error("Error deleteing product " + id);
+            console.log(error);
+        } finally {
+            setDeleting(null);
+        }
     }
 
     useEffect(() => {
@@ -73,7 +81,8 @@ const ProductList = () => {
                             </Button>
                             <Button
                             variant="destructive"
-                            onClick ={() => handleDelete(Product.id)} >
+                            onClick ={() => handleDelete(Product.id)}
+                            disabled= {deleting === Product.id} >
                                 <Trash/>
                             </Button>
                         </TableCell>

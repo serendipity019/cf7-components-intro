@@ -1,6 +1,7 @@
 import { Outlet} from "react-router";
 import Footer from "./Footer";
 import HeaderResponsive from "./HeaderResponsive";
+import { Toaster } from "./ui/sonner";
 
 const RouterLayout = () => {
     return (
@@ -10,6 +11,8 @@ const RouterLayout = () => {
                <Outlet />
             </div>
             <Footer /> 
+            {/* // This below is from shadcn UI */}
+            <Toaster richColors/> 
         </>
     );
 }

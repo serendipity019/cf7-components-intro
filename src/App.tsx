@@ -24,6 +24,7 @@ import FocusInput from "./components/FocusInput"
 import UncontrolledInput from "./components/UncontrolledInput"
 import MultiFieldFormWithReactHook from "./components/MultiFieldFormWithReactHook"
 import ProductList from "./pages/ProductList"
+import Product from "./pages/Product"
 //import NameChangerComponent from "./components/NameChangerComp"
 //import OnlineStatus from "./components/OnlineStatus";
 // import CounterWithMoreStatesComp from "./components/CounterWithMoreStatesComp"
@@ -96,7 +97,7 @@ function App() {
                 <Route path="products" element={<RouterLayout/>}>
                     <Route index element={<ProductList/>} />
                     <Route path="new" element={<ProductList/>} />
-                    <Route path=":productId" element={<ProductList/>} />
+                    <Route path=":productId" element={<Product/>} />
                 </Route>
                 <Route path="*" element={<NotFoundPage/>} /> 
               </Routes>
