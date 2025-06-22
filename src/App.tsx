@@ -24,7 +24,7 @@ import FocusInput from "./components/FocusInput"
 import UncontrolledInput from "./components/UncontrolledInput"
 import MultiFieldFormWithReactHook from "./components/MultiFieldFormWithReactHook"
 import ProductList from "./pages/ProductList"
-import Product from "./pages/Product.tsx"
+import Product from "./pages/Product"
 //import NameChangerComponent from "./components/NameChangerComp"
 //import OnlineStatus from "./components/OnlineStatus";
 // import CounterWithMoreStatesComp from "./components/CounterWithMoreStatesComp"
