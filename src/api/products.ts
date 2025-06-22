@@ -53,7 +53,7 @@ export async function updateProduct(
         slug: string;
         description?: string | undefined;
         image?: string | undefined;
-        price: string;
+        price: number;
         is_active: boolean;
         is_favorite: boolean;
         sort: number;
@@ -70,6 +70,7 @@ export async function updateProduct(
 export async function createProduct(data: Omit<ProductType, "id">): Promise<ProductType> {
     const res = await fetch(`${API_URL}/tenants/${TENANT_ID}/products/`, {
         method: 'POST',
+        headers: {"Content-Type": "application/json"},
         body: JSON.stringify(data)
     });
     if (!res.ok) throw new Error("Failed to create product.");

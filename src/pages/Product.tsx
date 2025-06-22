@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router";
 import {useForm} from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { getProduct, productFormSchema, updateProduct } from "@/api/products";
+import { getProduct, productFormSchema, updateProduct, createProduct } from "@/api/products";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -11,13 +11,14 @@ import {type ProductType } from "@/api/products";
 import { useEffect } from "react";
 import { toast } from "sonner";
 
+
 type ProductModeProps = {
     mode?: "create" | "edit";
 }
 
 const Product = ({mode}: ProductModeProps) => {
     const {productId} = useParams();
-    const navigate = useNavigate;
+    const navigate = useNavigate();
     const isEdit: boolean = mode === "edit" || (!productId && mode === "create");
 
     const {
@@ -44,9 +45,12 @@ const Product = ({mode}: ProductModeProps) => {
 
     const onSubmit = async (data: Omit<ProductType, "id">) => {
         try {
-            if(productId){
+            if(isEdit && productId){
                 await updateProduct(Number(productId), data);
                 toast.success("Product updated successfully");
+            } else {
+                await createProduct(data);
+                toast.success("Product created successfully");
             }
 
             navigate("/products");
@@ -58,7 +62,7 @@ const Product = ({mode}: ProductModeProps) => {
     }
 
     useEffect(() => {
-        if (productId) {
+        if (isEdit && productId) {
             getProduct(Number(productId))
               .then((data) => {
                 //setValue("name", data.name ?? "");
@@ -78,7 +82,7 @@ const Product = ({mode}: ProductModeProps) => {
                 console.log(err);
               })
         }
-    }, [productId, reset]);
+    }, [isEdit, productId, reset]);
 
     return (
         <>
