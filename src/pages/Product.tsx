@@ -1,17 +1,20 @@
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import {useForm} from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { getProduct, productSchema } from "@/api/products";
+import { getProduct, productFormSchema, updateProduct } from "@/api/products";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
-import {type Product } from "@/api/products";
+import {type ProductType } from "@/api/products";
 import { useEffect } from "react";
+import { toast } from "sonner";
+
 
 const Product = () => {
     const {productId} = useParams();
+    let navigate = useNavigate;
 
     const {
         register,
@@ -21,7 +24,7 @@ const Product = () => {
         formState: {errors, isSubmitting},
         reset
     } = useForm({
-        resolver: zodResolver(productSchema),
+        resolver: zodResolver(productFormSchema),
         defaultValues: {
             name: "",
             slug: "",
@@ -35,13 +38,24 @@ const Product = () => {
         }
     });
 
-    const onSubmit = (data: Omit<Product, "id">) => {
+    const onSubmit = async (data: Omit<ProductType, "id">) => {
+        try {
+            if(productId){
+                await updateProduct(Number(productId), data);
+                toast.success("Product updated successfully");
+            }
 
+            navigate("/products");
+        } catch (error) {
+            toast.error(
+                error instanceof Error ? error.message : "Something went wrong"
+            )
+        }
     }
 
     useEffect(() => {
         if (productId) {
-            getProduct(productId)
+            getProduct(Number(productId))
               .then((data) => {
                 //setValue("name", data.name ?? "");
                 const values = {
@@ -116,16 +130,23 @@ const Product = () => {
                     )}
                 </div>
 
-                <div>
+                <div className="flex items-center space-x-2">
                     <Label htmlFor="is_active" className="mb-1">Active</Label>
-                    <Switch id="is_active"/>
+                    <Switch id="is_active"
+                    checked={watch("is_active")}
+                    onCheckedChange={(v) => setValue("is_active", v)}
+                        />
                 </div>
-                <div>
+                <div className="flex items-center space-x-2">
                     <Label htmlFor="is_favorite" className="mb-1">Favorite</Label>
-                    <Switch id="is_favorite"/>
+                    <Switch id="is_favorite"
+                    checked={watch("is_favorite")}
+                    onCheckedChange={(v) => setValue("is_favorite", v)}/>
                 </div>     
                 
-                <Button variant={"default"} type="submit">Submit</Button>   
+                <Button variant={"default"} type="submit"
+                    disabled={isSubmitting}
+                >{ isSubmitting ? "Submitting..." : "Submit"}</Button>   
                 
             </form>
         </>

@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { deleteProduct, getProducts, type Product } from "@/api/products";
+import { deleteProduct, getProducts, type ProductType } from "@/api/products";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router";
 import {Pencil, Trash} from "lucide-react";
@@ -17,7 +17,7 @@ import { toast } from "sonner";
 
 
 const ProductList = () => {
-    const [products, setProducts] = useState<Product[]>([]);
+    const [products, setProducts] = useState<ProductType[]>([]);
     const [loading, setLoading] = useState<boolean>(true); // this is for the loading symbol
     const [deleting, setDeleting] = useState<number | null>(null);
 
