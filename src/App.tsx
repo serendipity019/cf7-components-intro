@@ -96,8 +96,8 @@ function App() {
                 </Route>
                 <Route path="products" element={<RouterLayout/>}>
                     <Route index element={<ProductList/>} />
-                    <Route path="new" element={<ProductList/>} />
-                    <Route path=":productId" element={<Product/>} />
+                    <Route path="new" element={<Product mode= "create"/>} />
+                    <Route path=":productId" element={<Product mode = "edit" />} />
                 </Route>
                 <Route path="*" element={<NotFoundPage/>} /> 
               </Routes>

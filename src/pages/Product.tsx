@@ -11,10 +11,14 @@ import {type ProductType } from "@/api/products";
 import { useEffect } from "react";
 import { toast } from "sonner";
 
+type ProductModeProps = {
+    mode?: "create" | "edit";
+}
 
-const Product = () => {
+const Product = ({mode}: ProductModeProps) => {
     const {productId} = useParams();
-    let navigate = useNavigate;
+    const navigate = useNavigate;
+    const isEdit: boolean = mode === "edit" || (!productId && mode === "create");
 
     const {
         register,
@@ -80,7 +84,9 @@ const Product = () => {
         <>
             <form className="max-w-xl mx-auto mt-12 p-8 border rounded-lg space-y-6" 
             onSubmit={handleSubmit(onSubmit)}>
-                <h1 className="text-xl font-bold">Edit Product</h1>
+                <h1 className="text-xl font-bold">
+                    {isEdit ? "Edit Product" : "Create New Product"}
+                    </h1>
                 <div>
                     <Label htmlFor="name" className="mb-1">Name</Label> 
                     {/* //The htmlFor = "fieldName" connected with the id="fieldName" below in Input element */}
